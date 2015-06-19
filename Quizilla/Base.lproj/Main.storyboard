@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QbA-TF-f1I">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--Questions View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="QuestionsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <string key="storyboardIdentifier" base64-UTF8="YES">
+cG9ydHJhaXQQUXVlc3Rpb25zVmlldw
+</string>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EiE-Dm-5Xg">
+                                <rect key="frame" x="177" y="168" width="45" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YrV-Al-LqP">
+                                <rect key="frame" x="0.0" y="173" width="150" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yJ9-mn-ikU">
+                                <rect key="frame" x="5" y="219" width="293" height="230"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="c0D-Ps-j3I"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="cUx-D6-9hk"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sxx-i8-zQU">
+                                <rect key="frame" x="256" y="168" width="42" height="35"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="HlQ-qy-LcI" kind="show" identifier="showReportCard" id="N9d-04-RB6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="rBA-Ze-TwL" userLabel="Question Button">
+                                <rect key="frame" x="5" y="69" width="300" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="5hu-3G-KG6"/>
+                                    <constraint firstAttribute="width" constant="300" id="FN2-Qh-FA8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <state key="normal" title="Question"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rBA-Ze-TwL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="5" id="5Kj-yl-rxk"/>
+                            <constraint firstItem="rBA-Ze-TwL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="5" id="oGw-Fu-1za"/>
+                        </constraints>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="btnNextQuestionIcon" destination="sxx-i8-zQU" id="h33-cT-LMb"/>
+                        <outlet property="btnQuestion" destination="rBA-Ze-TwL" id="Zu4-TC-AEl"/>
+                        <outlet property="hiddenQuestionAnswered" destination="YrV-Al-LqP" id="InJ-cC-UMC"/>
+                        <outlet property="lblResultIcon" destination="EiE-Dm-5Xg" id="XzY-Bq-eR0"/>
+                        <outlet property="tblAnswerOptions" destination="yJ9-mn-ikU" id="dQh-Dq-Cme"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="557.5" y="234.5"/>
+        </scene>
+        <!--Landscape Questions View Controller-->
+        <scene sceneID="9C3-tw-N6m">
+            <objects>
+                <viewController storyboardIdentifier="landscapeView" id="gPW-Ja-EnZ" customClass="LandscapeQuestionsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XnU-ON-Jwd"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hz8-Ps-aVF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ty2-mb-4vI">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7U4-Pb-fZN">
+                                <rect key="frame" x="306" y="147" width="42" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fr0-je-0o0">
+                                <rect key="frame" x="16" y="139" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LiF-7a-C88">
+                                <rect key="frame" x="409" y="144" width="30" height="30"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="58x-2U-VVi" kind="show" identifier="showLandscapeReportCard" id="9ff-te-we7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="GxV-w1-J6j">
+                                <rect key="frame" x="10" y="28" width="427" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="UAl-aK-EPf"/>
+                                    <constraint firstAttribute="width" constant="427" id="kSf-8I-ot4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <state key="normal">
+                                    <string key="title">Game of Thrones is a series, set on the fictional continents of Westeros and Essos at the end of a decade-long summer, interweaves several plot lines with a broad ensemble cast. </string>
+                                </state>
+                                <string key="userLabel">Game of Thrones is a series, set on the fictional continents of Westeros and Essos at the end of a decade-long summer, interweaves several plot lines with a broad ensemble cast.</string>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="IN2-WL-asP">
+                                <rect key="frame" x="10" y="188" width="427" height="135"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="427" id="N53-NI-ujF"/>
+                                    <constraint firstAttribute="height" constant="135" id="XRU-ja-YFe"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="gPW-Ja-EnZ" id="ol5-Px-lph"/>
+                                    <outlet property="delegate" destination="gPW-Ja-EnZ" id="HIg-6B-Anj"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IN2-WL-asP" firstAttribute="top" secondItem="ty2-mb-4vI" secondAttribute="top" constant="190" id="G3p-Bi-FUv"/>
+                            <constraint firstItem="GxV-w1-J6j" firstAttribute="top" secondItem="XnU-ON-Jwd" secondAttribute="bottom" constant="8" id="U1d-bf-TyJ"/>
+                            <constraint firstItem="IN2-WL-asP" firstAttribute="leading" secondItem="ty2-mb-4vI" secondAttribute="leading" constant="10" id="Xej-F0-qjU"/>
+                            <constraint firstItem="GxV-w1-J6j" firstAttribute="leading" secondItem="ty2-mb-4vI" secondAttribute="leading" constant="10" id="y2G-uz-1E8"/>
+                        </constraints>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="667" height="375"/>
+                    <connections>
+                        <outlet property="btnNextQuestionIcon" destination="LiF-7a-C88" id="egc-tD-LQi"/>
+                        <outlet property="btnQuestion" destination="GxV-w1-J6j" id="dfk-zC-ei7"/>
+                        <outlet property="hiddenQuestionAnswered" destination="fr0-je-0o0" id="3fH-9A-f1F"/>
+                        <outlet property="lblResultIcon" destination="7U4-Pb-fZN" id="GR7-Kc-4k0"/>
+                        <outlet property="tblAnswerOptions" destination="IN2-WL-asP" id="bgL-sE-0Vf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bl3-tW-c5G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="834.5" y="1058.5"/>
+        </scene>
+        <!--Landscape Report Card View Controller-->
+        <scene sceneID="YxV-te-Agt">
+            <objects>
+                <viewController storyboardIdentifier="LandScapeReportCardView" id="58x-2U-VVi" customClass="LandscapeReportCardViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8U4-WO-H2Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="MUw-fK-s91"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YWn-AT-gcN">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ef1-Wn-4Tk">
+                                <rect key="frame" x="16" y="77" width="442" height="21"/>
+                                <color key="backgroundColor" red="0.46072092999999997" green="1" blue="0.87784224960000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2A-yI-rYT">
+                                <rect key="frame" x="16" y="131" width="442" height="21"/>
+                                <color key="backgroundColor" red="0.46072092999999997" green="1" blue="0.87784224960000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7L-EO-XpC">
+                                <rect key="frame" x="176" y="247" width="211" height="30"/>
+                                <color key="backgroundColor" red="0.64895517250000001" green="1" blue="0.9391189352" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Go to Dashboard">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="XBX-bw-wns" kind="show" id="Zy3-FK-bJP"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBZ-Sa-XeI">
+                                <rect key="frame" x="16" y="177" width="442" height="21"/>
+                                <color key="backgroundColor" red="0.46072092999999997" green="1" blue="0.87784224960000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Report Card" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oea-jW-YMJ">
+                                <rect key="frame" x="36" y="20" width="402" height="21"/>
+                                <color key="backgroundColor" red="1" green="0.23937685019999999" blue="0.2084665232" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="lblResultQuizGenre" destination="oea-jW-YMJ" id="Av5-ye-6Az"/>
+                        <outlet property="lblScore" destination="NBZ-Sa-XeI" id="WNy-Vd-l54"/>
+                        <outlet property="lblTotalCorrect" destination="w2A-yI-rYT" id="hq4-Lf-ScG"/>
+                        <outlet property="lblTotalQuestions" destination="Ef1-Wn-4Tk" id="3fW-fg-3ri"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jjg-hw-Mar" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1582.5" y="1058.5"/>
+        </scene>
+        <!--Report Card View Controller-->
+        <scene sceneID="9Gj-Mg-SY9">
+            <objects>
+                <viewController storyboardIdentifier="ReportCardView" id="HlQ-qy-LcI" customClass="ReportCardViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="83p-Sf-hcs"/>
+                        <viewControllerLayoutGuide type="bottom" id="ec1-yN-HDF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NA3-7U-sbe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSk-HH-enb">
+                                <rect key="frame" x="16" y="125" width="288" height="42"/>
+                                <color key="backgroundColor" red="0.46072093003077397" green="1" blue="0.87784224959762791" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWf-mk-JOo">
+                                <rect key="frame" x="18" y="180" width="288" height="42"/>
+                                <color key="backgroundColor" red="0.46072092999999997" green="1" blue="0.87784224960000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Bb-xh-fHX">
+                                <rect key="frame" x="88" y="370" width="144" height="30"/>
+                                <color key="backgroundColor" red="0.46072092999999997" green="1" blue="0.87784224960000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Go to Dashboard">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="QbA-TF-f1I" kind="show" id="7y0-hJ-ARG"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8VJ-Xl-9AM">
+                                <rect key="frame" x="18" y="230" width="288" height="42"/>
+                                <color key="backgroundColor" red="0.46072092999999997" green="1" blue="0.87784224960000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Report Card" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ESo-pA-n47">
+                                <rect key="frame" x="18" y="64" width="248" height="21"/>
+                                <color key="backgroundColor" red="1" green="0.23937685019999999" blue="0.2084665232" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="lblResultQuizGenre" destination="ESo-pA-n47" id="P0g-0p-aUv"/>
+                        <outlet property="lblScore" destination="8VJ-Xl-9AM" id="9Nc-r7-KiF"/>
+                        <outlet property="lblTotalCorrect" destination="ZWf-mk-JOo" id="f9E-bR-xUm"/>
+                        <outlet property="lblTotalQuestions" destination="ZSk-HH-enb" id="0BO-iC-EOi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hky-rl-aal" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.5" y="184.5"/>
+        </scene>
+        <!--Question Types View Controller-->
+        <scene sceneID="Id2-ch-JKT">
+            <objects>
+                <viewController storyboardIdentifier="questionsTypeView" id="hXc-c5-FgQ" customClass="QuestionTypesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8Je-F0-wUS"/>
+                        <viewControllerLayoutGuide type="bottom" id="3bb-vZ-sPl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yHG-QS-PRg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bm5-0A-08w">
+                                <rect key="frame" x="16" y="176" width="163" height="30"/>
+                                <color key="backgroundColor" red="0.64895517251209645" green="1" blue="0.93911893515944533" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Programming">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="programming" id="dI9-Wx-Svk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WnG-gQ-shE">
+                                <rect key="frame" x="16" y="214" width="163" height="30"/>
+                                <color key="backgroundColor" red="0.64895517250000001" green="1" blue="0.9391189352" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="General Knowledge">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="General Knowledge" id="DUC-Qq-zK1"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please select your theme for Quiz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AH0-QV-RDX">
+                                <rect key="frame" x="16" y="98" width="343" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCa-jE-0OX">
+                                <rect key="frame" x="16" y="252" width="163" height="30"/>
+                                <color key="backgroundColor" red="0.64895517250000001" green="1" blue="0.9391189352" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Sports">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="Sports" id="xCY-pe-1SF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.corerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <navigationItem key="navigationItem" id="AD6-A2-SRX"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="unwantedNavigationBar" destination="AD6-A2-SRX" id="xt1-WD-XP1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bjb-I7-bHn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8.5" y="234.5"/>
+        </scene>
+        <!--Landscape Questions Type View Controller-->
+        <scene sceneID="egb-Gu-89h">
+            <objects>
+                <viewController storyboardIdentifier="LandscapeQuestionsTypeView" id="XBX-bw-wns" customClass="LandscapeQuestionsTypeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GgH-fM-hgM"/>
+                        <viewControllerLayoutGuide type="bottom" id="k6z-E1-RUS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fuO-kG-aMJ">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please select your theme for Quiz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yiX-FT-eSC">
+                                <rect key="frame" x="16" y="42" width="333" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ysG-xM-Ufa">
+                                <rect key="frame" x="141" y="101" width="144" height="30"/>
+                                <color key="backgroundColor" red="0.64895517250000001" green="1" blue="0.9391189352" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="General Knowledge">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="gPW-Ja-EnZ" kind="show" identifier="General Knowledge" id="Ma2-Py-k8r"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMT-ot-j1y">
+                                <rect key="frame" x="301" y="101" width="108" height="30"/>
+                                <color key="backgroundColor" red="0.64895517250000001" green="1" blue="0.9391189352" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Sports">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="gPW-Ja-EnZ" kind="show" identifier="sports" id="Oeb-FW-C3S"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4DL-ib-hOa">
+                                <rect key="frame" x="16" y="101" width="108" height="30"/>
+                                <color key="backgroundColor" red="0.64895517250000001" green="1" blue="0.9391189352" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Programming">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="gPW-Ja-EnZ" kind="show" identifier="Programming" id="PQ3-0s-GhT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cP9-Md-CZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-150.5" y="1085.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mvh-kv-i2D">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QbA-TF-f1I" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7RQ-5A-b7n">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hXc-c5-FgQ" kind="relationship" relationship="rootViewController" id="h5I-Xa-EA2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pZz-mR-KJc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-532" y="185"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="dI9-Wx-Svk"/>
+        <segue reference="PQ3-0s-GhT"/>
+    </inferredMetricsTieBreakers>
+</document>
