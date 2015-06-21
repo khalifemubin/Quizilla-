@@ -60,6 +60,7 @@
                                                                      target:self
                                                                      action:@selector(backButtonClicked)];
     self.navigationItem.leftBarButtonItem = backNavButton;
+    self.navigationItem.title = questionTypeText;
     
     /*_questionsTypeNavigator.topItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(backToGenre:)];*/
     
@@ -211,17 +212,34 @@
             [iconResult removeFromSuperview];
             iconResult = [[UIImageView alloc] initWithFrame:_lblResultIcon.frame];
             
+            int answerOption = [[[_question_list objectAtIndex:iStartWithQuestion] valueForKey:@"correctOption"] intValue];
+            
+            
+            int indexPathChosen = 0;
+            
             if([answerchosen isEqual:@"correct"])
             {
                 iconResult.image = [UIImage imageNamed:@"correct_mark_icon.png"];
+                indexPathChosen = (answerOption - 1);
             }
             else if([answerchosen isEqual:@"wrong"])
             {
                 iconResult.image = [UIImage imageNamed:@"wrong_mark_icon.png"];
+             
+                if (answerOption == 1)
+                    indexPathChosen = 1;
+                else
+                    indexPathChosen = 0;
             }
             
             [self.view addSubview:iconResult];
             [self.view bringSubviewToFront:_lblResultIcon];
+            
+            //also highlight the answer chosen
+            [_tblAnswerOptions reloadData];
+            NSIndexPath *defaultIndexPath = [NSIndexPath indexPathForRow:indexPathChosen inSection:0];
+            
+            [_tblAnswerOptions selectRowAtIndexPath:defaultIndexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
         }
     }
 }
@@ -242,6 +260,10 @@
 
 -(void) displayQuestionOptions:(int)questionNumber
 {
+    
+    NSString *questionProgress = [NSString stringWithFormat:@"%i / %i",(questionNumber+1),(int)_question_list.count];
+    _lblProgress.text = questionProgress;
+    
     [iconResult removeFromSuperview];
 
     
@@ -450,6 +472,11 @@
     questionType = questionTypePassed;
 }
 
+-(void) setQuestionTypeText:(NSString*) questionTypeTextPassed
+{
+    questionTypeText = questionTypeTextPassed;
+}
+
 -(BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
     BOOL bProceedWithNavigation = NO;
@@ -521,7 +548,7 @@
     {
         QuestionsViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"portraitQuestionsView"];
         [controller setQuestionType:questionType];
-
+        [controller setQuestionTypeText:questionTypeText];
         controller.passedQuestionNumber = iStartWithQuestion;
         
         controller.passedAnswerChosen = answerchosen;

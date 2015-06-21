@@ -55,6 +55,7 @@
     }
     
     [segue.destinationViewController setQuestionType:questionType];
+    [segue.destinationViewController setQuestionTypeText:[segue.identifier capitalizedString]];
 }
 
 

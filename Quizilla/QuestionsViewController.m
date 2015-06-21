@@ -65,6 +65,7 @@
                                                                      action:@selector(backButtonClicked)];
    
     self.navigationItem.leftBarButtonItem = backNavButton;
+    self.navigationItem.title = questionTypeText;
 
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:_btnQuestion.frame];
     imageView.image = [UIImage imageNamed:@"notebook_page.png"];
@@ -209,17 +210,32 @@
             [iconResult removeFromSuperview];
             iconResult = [[UIImageView alloc] initWithFrame:_lblResultIcon.frame];
             
+            int answerOption = [[[_question_list objectAtIndex:iStartWithQuestion] valueForKey:@"correctOption"] intValue];
+            
+            int indexPathChosen = 0;
+            
             if([_passedAnswerChosen isEqual:@"correct"])
             {
                 iconResult.image = [UIImage imageNamed:@"correct_mark_icon.png"];
+                indexPathChosen = (answerOption - 1);
             }
             else if([_passedAnswerChosen isEqual:@"wrong"])
             {
                 iconResult.image = [UIImage imageNamed:@"wrong_mark_icon.png"];
+                if (answerOption == 1)
+                    indexPathChosen = 1;
+                else
+                    indexPathChosen = 0;
             }
             
             [self.view addSubview:iconResult];
             [self.view bringSubviewToFront:_lblResultIcon];
+            
+            //also highlight the answer chosen
+            [_tblAnswerOptions reloadData];
+            NSIndexPath *defaultIndexPath = [NSIndexPath indexPathForRow:indexPathChosen inSection:0];
+            
+            [_tblAnswerOptions selectRowAtIndexPath:defaultIndexPath animated:YES scrollPosition:UITableViewScrollPositionTop];
         }
     }
     
@@ -246,6 +262,10 @@
 
 -(void) displayQuestionOptions:(int)questionNumber
 {
+    NSString *questionProgress = [NSString stringWithFormat:@"%i / %i",(questionNumber+1),(int)_question_list.count];
+    
+    _lblProgress.text = questionProgress;
+    
     [iconResult removeFromSuperview];
     
     NSString *questionToDisplay = [[_question_list objectAtIndex:questionNumber] objectForKey:@"question"];
@@ -469,6 +489,11 @@
     questionType = questionTypePassed;
 }
 
+-(void) setQuestionTypeText:(NSString*) questionTypeTextPassed
+{
+    questionTypeText = questionTypeTextPassed;
+}
+
 -(BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
     BOOL bProceedWithNavigation = NO;
@@ -530,6 +555,7 @@
     if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
         LandscapeQuestionsViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"landscapeView"];
         [controller setQuestionType:questionType];
+        [controller setQuestionTypeText:questionTypeText];
         controller.passedQuestionNumber = iStartWithQuestion;
         controller.passedAnswerChosen = answerchosen;
         [self.navigationController pushViewController:controller animated:YES];
@@ -539,6 +565,7 @@
     } else if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
         LandscapeQuestionsViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"landscapeView"];
         [controller setQuestionType:questionType];
+        [controller setQuestionTypeText:questionTypeText];
         controller.passedQuestionNumber = iStartWithQuestion;
         controller.passedAnswerChosen = answerchosen;
         [self.navigationController pushViewController:controller animated:YES];

@@ -54,6 +54,7 @@
     }
     
     [segue.destinationViewController setQuestionType:questionType];
+    [segue.destinationViewController setQuestionTypeText:[segue.identifier capitalizedString]];
 }
 
 -(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration

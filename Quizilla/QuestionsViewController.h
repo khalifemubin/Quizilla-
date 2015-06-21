@@ -17,13 +17,16 @@
     sqlite3 *db;
     int iStartWithQuestion;
     int questionType;
+    NSString *questionTypeText;
     UIImageView *iconResult;
     NSString *answerchosen;
 }
 
+@property (weak, nonatomic) IBOutlet UILabel *lblProgress;
 
 
 -(void) setQuestionType:(int)questionTypePassed;
+-(void) setQuestionTypeText:(NSString *) questionTypeText;
 
 @property(assign,nonatomic) int passedQuestionNumber;
 @property(assign,nonatomic) NSString *passedAnswerChosen;
